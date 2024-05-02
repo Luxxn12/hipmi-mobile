@@ -1,73 +1,17 @@
-/* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-native/no-inline-styles */
-import {
-  ButtonIcon,
-  Divider,
-  HStack,
-  Icon,
-  Menu,
-  MenuItem,
-  MenuItemLabel,
-  Text,
-  VStack,
-} from '@gluestack-ui/themed';
-import {Box, Image} from '@gluestack-ui/themed';
-import {
-  Camera,
-  EllipsisVertical,
-  FilePenLine,
-  FilePlus2,
-  Home,
-  LogOut,
-  Mail,
-  PersonStanding,
-  Smartphone,
-} from 'lucide-react-native';
-import React, {useEffect} from 'react';
-import {ScrollView} from 'react-native';
+import {Divider, Icon} from '@gluestack-ui/themed';
+import {Text} from '@gluestack-ui/themed';
+import {VStack} from '@gluestack-ui/themed';
+import {Image} from '@gluestack-ui/themed';
+import {HStack} from '@gluestack-ui/themed';
+import {Box} from '@gluestack-ui/themed';
+import {Home, Mail, PersonStanding, Smartphone} from 'lucide-react-native';
+import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {View} from 'react-native';
+import {ScrollView} from 'react-native';
 
-export default function ViewProfile({navigation}: any) {
-  useEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <Menu
-          placement="top"
-          trigger={({...triggerProps}) => {
-            return (
-              <TouchableOpacity style={{paddingRight: 10}} {...triggerProps}>
-                <Icon as={EllipsisVertical} size="xl" mt={1} color="#FFFFFF" />
-              </TouchableOpacity>
-            );
-          }}>
-          <MenuItem
-            key="1"
-            textValue="1"
-            onPress={() => navigation.navigate('EditProfile', {name: 'edit'})}>
-            <Icon as={FilePenLine} size="md" mr="$2" />
-            <MenuItemLabel size="sm">Edit Profile</MenuItemLabel>
-          </MenuItem>
-          <MenuItem
-            key="2"
-            textValue="2"
-            onPress={() => navigation.navigate('AddPortofolio', {name: 'add'})}>
-            <Icon as={FilePlus2} size="md" mr="$2" />
-            <MenuItemLabel size="sm">Add Portofolio</MenuItemLabel>
-          </MenuItem>
-          <MenuItem
-            key="3"
-            textValue="3"
-            onPress={() => navigation.navigate('Login', {name: 'logout'})}>
-            <Icon as={LogOut} size="md" mr="$2" color="$red400" />
-            <MenuItemLabel size="sm" color="$red400">
-              Logout
-            </MenuItemLabel>
-          </MenuItem>
-        </Menu>
-      ),
-    });
-  }, [navigation]);
+export default function ViewProfileUser({navigation}: any) {
   return (
     <>
       <Box bgColor="white" h={'$full'}>
@@ -103,43 +47,10 @@ export default function ViewProfile({navigation}: any) {
                     borderWidth: 3,
                     borderColor: '#ffffff',
                   }}
-                  source={{uri: 'https://i.pravatar.cc/1000?img=3'}}
+                  source={{uri: 'https://i.pravatar.cc/1000?img=18'}}
                   alt="aa"
                 />
-                {/* </TouchableOpacity> */}
-                <TouchableOpacity
-                  style={{
-                    width: 35,
-                    height: 35,
-                    borderRadius: 50 / 2,
-                    backgroundColor: '#000000',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    position: 'absolute',
-                    borderWidth: 2,
-                    borderColor: '#ffffff',
-                    // right: 10,
-                    top: 80,
-                    left: 80,
-                  }}>
-                  <ButtonIcon as={Camera} color="white" size="lg" />
-                </TouchableOpacity>
               </Box>
-              <TouchableOpacity
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 50 / 2,
-                  backgroundColor: '#000000',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  position: 'absolute',
-                  // right: 10,
-                  top: 140,
-                  right: 30,
-                }}>
-                <ButtonIcon as={Camera} color="white" size="xl" />
-              </TouchableOpacity>
               <VStack pt={'15%'} alignContent="center" alignItems="center">
                 <Text fontWeight="$semibold" fontSize={20} color="#000000">
                   Joko Widodo

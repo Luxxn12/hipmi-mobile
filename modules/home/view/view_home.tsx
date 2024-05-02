@@ -3,11 +3,27 @@
 import {Text, VStack} from '@gluestack-ui/themed';
 import {Avatar, Box, Icon, Image} from '@gluestack-ui/themed';
 import {User} from 'lucide-react-native';
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
+import * as React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {ScrollView, StyleSheet, View} from 'react-native';
+// import Carousel from 'react-native-reanimated-carousel';
 
 export default function ViewHome({navigation}: any) {
+  // const width = useWindowDimensions().width;
+  // const list = [
+  //   {
+  //     id: 1,
+  //     title: 'data1',
+  //     image: require('..//..//..//assets/home-hipmi.png'),
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'data2',
+  //     image: require('..//..//..//assets/bg.jpeg'),
+  //   },
+  // ];
+
   useEffect(() => {
     navigation.setOptions({
       headerLift: () => (
@@ -32,6 +48,29 @@ export default function ViewHome({navigation}: any) {
                 alt="Hipmi"
               />
             </View>
+            {/* <View style={{flex: 1}}>
+              <Carousel
+                loop
+                width={width}
+                height={width / 2}
+                autoPlay={true}
+                data={list}
+                scrollAnimationDuration={1000}
+                onSnapToItem={index => console.log('current index:', index)}
+                renderItem={({index}) => (
+                  <View
+                    style={{
+                      flex: 1,
+                      borderWidth: 1,
+                      justifyContent: 'center',
+                    }}>
+                    <Text style={{textAlign: 'center', fontSize: 30}}>
+                      {index}
+                    </Text>
+                  </View>
+                )}
+              />
+            </View> */}
             <VStack m={10} ml={15} mt={15}>
               <Text fontWeight="$bold" fontSize={18} color="#000">
                 Service Features
@@ -42,7 +81,10 @@ export default function ViewHome({navigation}: any) {
                 <VStack
                   m={10}
                   style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('HomeForums', {name: 'forums'})
+                    }>
                     <Box
                       style={{
                         backgroundColor: '#fff',
@@ -71,7 +113,10 @@ export default function ViewHome({navigation}: any) {
                 <VStack
                   m={10}
                   style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('HomeEvent', {name: 'forums'})
+                    }>
                     <Box
                       style={{
                         backgroundColor: '#fff',
